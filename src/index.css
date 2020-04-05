@@ -1,0 +1,52 @@
+:root {
+  --color-primary-light: #e91e63;
+  --color-primary-dark: #880e4f;
+  --color-secondary-light: #3f51b5;
+  --color-secondary-dark: #1a337e;
+  --color-grey-dark-1: #607d8b;
+  --color-grey-dark-2: #455a64;
+  --color-grey-light: #cfd8dc;
+
+  --shadow-dark: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+  --shadow-light: 0 4px 8px 0 rgba(0, 0, 0, 0.3);
+
+  --massive-font-size: 4.8rem;
+  --large-font-size: 2.8rem;
+  --medium-font-size: 1.8rem;
+  --small-font-size: 1.2rem;
+  --tiny-font-size: 0.8rem;
+}
+
+@font-face {
+  font-family: "MontserratBold";
+  src: local("MontserratBold"),
+    url(./assets/fonts/montserrat-bold.woff) format("truetype");
+}
+
+@font-face {
+  font-family: "MontserratRegular";
+  src: local("MontserratRegular"),
+    url(./assets/fonts/montserrat-regular.woff) format("truetype");
+}
+
+@font-face {
+  font-family: "MontserratLight";
+  src: local("MontserratLight"),
+    url(./assets/fonts/montserrat-light.woff) format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}

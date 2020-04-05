@@ -1,0 +1,105 @@
+.issue-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.issue-list-container {
+  margin: 2rem 10rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-template-rows: repeat(auto-fit, 1fr);
+
+  justify-content: start;
+  align-items: start;
+
+  column-gap: 5rem;
+  row-gap: 5rem;
+}
+
+.issue-card-container {
+  cursor: pointer;
+  height: 100%;
+  width: 100%;
+  word-break: break-all;
+  box-shadow: var(--shadow-light);
+}
+
+.issue-card-container > a {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  width: 100%;
+  height: 100%;
+}
+
+.issue-card-title-container {
+  background-color: var(--color-secondary-light);
+  padding: 1.8rem;
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 1fr 4rem;
+  grid-template-rows: auto 1fr;
+}
+
+.issue-card-title-header {
+  font-family: MontserratRegular;
+  font-size: var(--medium-font-size);
+  color: white;
+  grid-row: 1 / 3;
+}
+
+.issue-card-icon {
+  align-self: start;
+  justify-self: end;
+  grid-column: 2/3;
+}
+
+.issue-card-description {
+  font-family: MontserratLight;
+  font-weight: 550;
+  font-size: var(--small-font-size);
+  color: var(--color-grey-dark-1);
+  padding: 1rem;
+}
+
+.issue-card-description > p {
+  width: 100%;
+}
+
+.issue-card-label-container {
+  display: flex;
+  margin-top: auto;
+  padding: 1rem;
+}
+
+.issue-card-label {
+  font-family: MontserratLight;
+  font-size: var(--medium-font-size);
+  margin: 0 0.5rem;
+}
+
+.issue-filter-container {
+  display: flex;
+  margin: 5rem 0rem 0rem 10rem;
+  align-items: center;
+  justify-self: flex-start;
+  width: 100v;
+}
+
+.issue-filter-item {
+  margin-left: 1rem;
+  font-family: MontserratLight;
+  font-size: var(--small-font-size);
+  color: var(--color-grey-dark-1);
+  cursor: pointer;
+}
+
+.issue-filter-icon {
+  fill: var(--color-grey-dark-1);
+  margin-left: auto;
+  margin-right: 10rem;
+  cursor: pointer;
+}

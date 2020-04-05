@@ -1,0 +1,23 @@
+.search-container {
+  background-color: var(--color-primary-light);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container-label {
+  font-weight: bold;
+  font-size: var(--massive-font-size);
+  color: white;
+}
+
+.search-container-form {
+  height: 4rem;
+  width: 70rem;
+}
+
+.search-container-icon {
+}

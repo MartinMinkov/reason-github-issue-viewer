@@ -1,0 +1,29 @@
+.header-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: var(--color-primary-light);
+  width: 100vw;
+  height: 10vh;
+  box-shadow: var(--shadow-light);
+}
+
+.header-title {
+  font-family: MontserratBold;
+  font-size: var(--large-font-size);
+  color: white;
+  margin-left: 5rem;
+  cursor: pointer;
+}
+
+.header-website {
+  font-family: MontserratLight;
+  letter-spacing: 1px;
+  font-weight: lighter;
+  color: black;
+  font-size: var(--medium-font-size);
+  margin-right: 8rem;
+  cursor: pointer;
+}
