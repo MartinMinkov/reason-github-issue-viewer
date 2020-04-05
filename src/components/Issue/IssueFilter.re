@@ -18,7 +18,7 @@ let make = (~onFilterPress) => {
     </div>
     <div
       className="issue-filter-item"
-      onClick={_ => onFilterPress(Types.IssueType.Close)}>
+      onClick={_ => onFilterPress(Types.IssueType.Closed)}>
       {"Closed Issues" |> ReasonReact.string}
     </div>
     <div

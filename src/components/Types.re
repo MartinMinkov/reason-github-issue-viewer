@@ -2,16 +2,8 @@ module IssueType = {
   type t =
     | All
     | Open
-    | Close
-    | PullRequest;
-};
-
-module IssueStatus = {
-  type t =
-    | Open
     | Closed
-    | PullRequest
-    | All;
+    | PullRequest;
 
   let statusOfIssue = (issue: IssueData.issue) =>
     if (issue.state == "closed") {

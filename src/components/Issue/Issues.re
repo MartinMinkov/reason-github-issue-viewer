@@ -43,7 +43,7 @@ let make = (~query) => {
       ->Belt.Array.keep(item =>
           item.state == "open" && item.pullRequest == None
         )
-    | Close => state.issues->Belt.Array.keep(item => item.state == "closed")
+    | Closed => state.issues->Belt.Array.keep(item => item.state == "closed")
     | PullRequest =>
       state.issues
       ->Belt.Array.keep(item =>

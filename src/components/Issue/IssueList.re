@@ -12,11 +12,12 @@ module IssuePullRequest = {
     "default";
 };
 
-let iconOfStatus = (status: Types.IssueStatus.t) => {
+let iconOfStatus = (status: Types.IssueType.t) => {
   switch (status) {
   | Open => ReasonReact.null
   | Closed => <IssueClosed height="2rem" width="2rem" />
   | PullRequest => <IssuePullRequest height="2rem" width="2rem" />
+  | All => ReasonReact.null
   };
 };
 
@@ -29,7 +30,7 @@ let make = (~issues: array(IssueData.issue)) => {
             <IssueCard
               key={string_of_int(issue.id)}
               issue
-              icon={issue |> Types.IssueStatus.statusOfIssue |> iconOfStatus}
+              icon={issue |> Types.IssueType.statusOfIssue |> iconOfStatus}
             />
           )
        |> ReasonReact.array;
