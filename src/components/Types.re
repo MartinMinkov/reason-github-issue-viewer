@@ -33,7 +33,15 @@ module IssueType = {
     | Closed
     | PullRequest;
 
-  let statusOfIssue = (issue: Issue.t): t =>
+  let stringOfIssue = (issueType: t): string =>
+    switch (issueType) {
+    | All => "All Issues"
+    | Open => "Open Issues"
+    | Closed => "Closed Issues"
+    | PullRequest => "Pull Requests"
+    };
+
+  let issueTypeOfIssue = (issue: Issue.t): t =>
     if (issue.state == "closed") {
       Closed;
     } else if (issue.state == "open" && issue.pullRequest == None) {

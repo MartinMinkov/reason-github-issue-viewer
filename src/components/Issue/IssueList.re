@@ -32,7 +32,7 @@ let make = (~issues: array(Types.Issue.t)) => {
             <IssueCard
               key={string_of_int(issue.id)}
               issue
-              icon={issue |> Types.IssueType.statusOfIssue |> iconOfStatus}
+              icon={issue |> Types.IssueType.issueTypeOfIssue |> iconOfStatus}
             />
           )
        |> ReasonReact.array;

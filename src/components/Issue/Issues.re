@@ -64,7 +64,7 @@ let make = (~query) => {
 
   <div className="issue-container">
     <Header query />
-    <IssueFilter onFilterPress />
+    <IssueFilter onFilterPress current={state.filterIssueBy} />
     <IssueList issues={filterIssuesToDisplay()} />
   </div>;
 };

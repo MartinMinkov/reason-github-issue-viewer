@@ -97,6 +97,10 @@
   cursor: pointer;
 }
 
+.issue-filter-item-active {
+  color: var(--color-primary-light);
+}
+
 .issue-filter-icon {
   fill: var(--color-grey-dark-1);
   margin-left: auto;

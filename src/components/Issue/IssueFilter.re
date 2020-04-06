@@ -3,29 +3,27 @@ module CloseIcon = {
   external make: (~height: string) => React.element = "default";
 };
 
+let listTitles = [|
+  Types.IssueType.All,
+  Types.IssueType.Open,
+  Types.IssueType.Closed,
+  Types.IssueType.PullRequest,
+|];
+
 [@react.component]
-let make = (~onFilterPress) => {
+let make = (~onFilterPress, ~current) => {
+  let renderListItem = title => {
+    let text = Types.IssueType.stringOfIssue(title);
+    let className =
+      title == current
+        ? "issue-filter-item issue-filter-item-active" : "issue-filter-item";
+    <div key=text className onClick={_ => onFilterPress(title)}>
+      {text |> ReasonReact.string}
+    </div>;
+  };
+
   <div className="issue-filter-container">
-    <div
-      className="issue-filter-item"
-      onClick={_ => onFilterPress(Types.IssueType.All)}>
-      {"All Issues" |> ReasonReact.string}
-    </div>
-    <div
-      className="issue-filter-item"
-      onClick={_ => onFilterPress(Types.IssueType.Open)}>
-      {"Open Issues" |> ReasonReact.string}
-    </div>
-    <div
-      className="issue-filter-item"
-      onClick={_ => onFilterPress(Types.IssueType.Closed)}>
-      {"Closed Issues" |> ReasonReact.string}
-    </div>
-    <div
-      className="issue-filter-item"
-      onClick={_ => onFilterPress(Types.IssueType.PullRequest)}>
-      {"Pull Issues" |> ReasonReact.string}
-    </div>
+    {listTitles->Belt.Array.map(title => renderListItem(title)) |> React.array}
     <div
       onClick={_ => ReasonReactRouter.push("/")}
       className="issue-filter-icon">
