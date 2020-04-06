@@ -1,7 +1,7 @@
 [%bs.raw {|require("./Issue.css")|}];
 
 [@react.component]
-let make = (~issue: IssueData.issue, ~icon: ReasonReact.reactElement) => {
+let make = (~issue: Types.Issue.t, ~icon: ReasonReact.reactElement) => {
   <div className="issue-card-container">
     <a href={issue.url}>
       <div className="issue-card-title-container">

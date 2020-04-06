@@ -1,18 +1,18 @@
 [%bs.raw {|require("./Issue.css")|}];
 
-let trimDescription = (s): string => {
+let trimDescription = (s: string): string => {
   String.length(s) > 250 ? String.sub(s, 0, 250) ++ "..." : s;
 };
 
 type state = {
-  issues: array(IssueData.issue),
+  issues: array(Types.Issue.t),
   filterIssueBy: Types.IssueType.t,
 };
 
 let initialState = {issues: [||], filterIssueBy: All};
 
 type action =
-  | Loaded(array(IssueData.issue))
+  | Loaded(array(Types.Issue.t))
   | Filtered(Types.IssueType.t);
 
 let reducer = (state, action) => {
@@ -35,7 +35,7 @@ let make = (~query) => {
     dispatch(Filtered(s));
   };
 
-  let filterIssuesToDisplay = (): array(IssueData.issue) => {
+  let filterIssuesToDisplay = (): array(Types.Issue.t) => {
     switch (state.filterIssueBy) {
     | All => state.issues
     | Open =>

@@ -10,7 +10,7 @@ module SearchIcon = {
   external make: (~height: string) => React.element = "default";
 };
 
-let formatQuery = s => {
+let formatQuery = (s: string): Js.Array.t(Js.String.t) => {
   let result = Js.String.split("/", s);
   [|Js.Array.pop(result), Js.Array.pop(result)|]
   |> Js.Array.reverseInPlace

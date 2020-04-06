@@ -1,5 +1,4 @@
 module API = {
-  open Json.Decode;
   let baseUrl = "https://api.github.com/repos/";
 
   let getIssues = query => {
@@ -12,7 +11,7 @@ module API = {
     Js.Promise.(
       Fetch.fetch(url)
       |> then_(Fetch.Response.json)
-      |> then_(json => IssueData.Decode.decodeIssues(json) |> resolve)
+      |> then_(json => Types.Issue.Decode.decodeIssues(json) |> resolve)
     );
   };
 };

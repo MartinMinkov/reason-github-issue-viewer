@@ -12,17 +12,19 @@ module IssuePullRequest = {
     "default";
 };
 
-let iconOfStatus = (status: Types.IssueType.t) => {
-  switch (status) {
-  | Open => ReasonReact.null
-  | Closed => <IssueClosed height="2rem" width="2rem" />
-  | PullRequest => <IssuePullRequest height="2rem" width="2rem" />
-  | All => ReasonReact.null
-  };
+let iconOfStatus = (status: Types.IssueType.t): React.element => {
+  Types.IssueType.(
+    switch (status) {
+    | Open => ReasonReact.null
+    | Closed => <IssueClosed height="2rem" width="2rem" />
+    | PullRequest => <IssuePullRequest height="2rem" width="2rem" />
+    | All => ReasonReact.null
+    }
+  );
 };
 
 [@react.component]
-let make = (~issues: array(IssueData.issue)) => {
+let make = (~issues: array(Types.Issue.t)) => {
   <div className="issue-list-container">
     {if (Array.length(issues) > 0) {
        issues
