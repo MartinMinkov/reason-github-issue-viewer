@@ -2,7 +2,7 @@ module Issue = {
   type t = {
     id: int,
     title: string,
-    description: string,
+    description: option(string),
     url: string,
     state: string,
     pullRequest: option(Js.Dict.t(string)),
@@ -15,7 +15,7 @@ module Issue = {
     let issue = json => {
       id: json |> field("id", int),
       title: json |> field("title", string),
-      description: json |> field("body", string),
+      description: json |> optional(field("body", string)),
       url: json |> field("html_url", string),
       state: json |> field("state", string),
       pullRequest: json |> optional(field("pull_request", dict(string))),

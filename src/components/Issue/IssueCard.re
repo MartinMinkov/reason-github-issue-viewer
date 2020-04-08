@@ -11,13 +11,13 @@ let make = (~issue: Types.Issue.t, ~icon: ReasonReact.reactElement) => {
         <div className="issue-card-icon"> icon </div>
       </div>
       <div className="issue-card-description">
-        <p className="issue-card-description">
-          {if (String.length(issue.description) > 0) {
-             issue.description |> ReasonReact.string;
-           } else {
-             "No description provided" |> ReasonReact.string;
-           }}
-        </p>
+        {switch (issue.description) {
+         | Some(description) => <p> {description |> ReasonReact.string} </p>
+         | None =>
+           <p className="issue-card-description-invalid">
+             {"No description provided" |> ReasonReact.string}
+           </p>
+         }}
       </div>
       <ul className="issue-card-label-container">
         {issue.labels

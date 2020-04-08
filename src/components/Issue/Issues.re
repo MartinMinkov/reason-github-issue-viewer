@@ -1,7 +1,11 @@
 [%bs.raw {|require("./Issue.css")|}];
 
-let trimDescription = (s: string): string => {
-  String.length(s) > 250 ? String.sub(s, 0, 250) ++ "..." : s;
+let trimDescription = (s: option(string)): option(string) => {
+  switch (s) {
+  | Some(s) =>
+    String.length(s) > 250 ? Some(String.sub(s, 0, 250) ++ "...") : Some(s)
+  | None => None
+  };
 };
 
 type state = {
@@ -20,7 +24,10 @@ let reducer = (state, action) => {
   | Loaded(repoIssues) =>
     let results =
       Belt.Array.map(repoIssues, issue => {
-        {...issue, description: trimDescription(issue.description)}
+        {
+          ...issue,
+          Types.Issue.description: trimDescription(issue.description),
+        }
       });
     {...state, issues: results};
   | Filtered(filterState) => {...state, filterIssueBy: filterState}

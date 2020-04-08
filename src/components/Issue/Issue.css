@@ -65,8 +65,10 @@
   padding: 1rem;
 }
 
-.issue-card-description > p {
-  width: 100%;
+.issue-card-description-invalid {
+  font-style: italic;
+  font-size: var(--small-font-size);
+  color: var(--color-grey-dark-2);
 }
 
 .issue-card-label-container {

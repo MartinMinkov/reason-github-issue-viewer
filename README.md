@@ -1,4 +1,11 @@
-# Reason react starter
+# Reason Github Issue Viewer
+
+A web application that lets the user browse and filter issues on a specified repository. 
+Implemented with Reason-React.
+
+## Demo 
+![](github.gif)
+
 
 ## Run Project
 

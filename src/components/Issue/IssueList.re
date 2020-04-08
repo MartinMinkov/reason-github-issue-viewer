@@ -12,7 +12,7 @@ module IssuePullRequest = {
     "default";
 };
 
-let iconOfStatus = (status: Types.IssueType.t): React.element => {
+let iconOfIssueType = (status: Types.IssueType.t): React.element => {
   Types.IssueType.(
     switch (status) {
     | Open => ReasonReact.null
@@ -32,7 +32,9 @@ let make = (~issues: array(Types.Issue.t)) => {
             <IssueCard
               key={string_of_int(issue.id)}
               issue
-              icon={issue |> Types.IssueType.issueTypeOfIssue |> iconOfStatus}
+              icon={
+                issue |> Types.IssueType.issueTypeOfIssue |> iconOfIssueType
+              }
             />
           )
        |> ReasonReact.array;
